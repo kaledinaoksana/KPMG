@@ -1,2 +1,5 @@
 __pycache__
 lib/__pycache__
+.DS_Store
+data/DS_Store
+data/new_files/DS_Store
