@@ -17,12 +17,23 @@ df_demographic = df[2]
 df_address = df[3]
 
 try:
-    df_demographic = dc.clean_demographic(df_demographic).reset_index(drop=True)
-    df_address = dc.clean_address(df_address).reset_index(drop=True)
     df_transactions = dc.clean_transactions(df_transactions).reset_index(drop=True)
-    print("Data cleaning successful.")
+    print('Success: transactions')
 except Exception as e:
-    print("An error occurred during data cleaning:", e)
+    print(f'Error transactions: {e}')
+
+try:
+    df_demographic = dc.clean_demographic(df_demographic).reset_index(drop=True)
+    print('Success: demographic')
+except Exception as e:
+    print(f'Error demographic: {e}')
+
+try:
+    df_address = dc.clean_address(df_address).reset_index(drop=True)
+    print('Success: address')
+except Exception as e:
+    print(f'Error address: {e}')
+    
 
 print_section('TRANSACTION WITHOUT CLEANING')
 i.df_info.columns_na(df[0])
